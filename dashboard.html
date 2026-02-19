@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Sincronía</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        
+        <header class="dashboard-header">
+            <div>
+                <div class="header-brand">
+                    <i class="ph-bold ph-infinity"></i> Sincronía
+                </div>
+                <h1>Hola, estas listo?</h1>
+                <p>Vamos a organizar tu día hoy.</p>
+            </div>
+            <div>
+                <i class="ph-fill ph-infinity icon-top-right"></i>
+            </div>
+        </header>
+
+        <main class="dashboard-grid">
+            
+            <div class="card">
+                <div class="card-title">📝 Parámetros del Día</div>
+                
+                <form id="sincroniaForm">
+                    <div class="input-group">
+                        <label>Preferencia Alimenticia</label>
+                        <select id="dietType" class="form-control">
+                            <option value="Balanceada">Balanceada</option>
+                            <option value="Vegetarian">Vegetariana</option>
+                            <option value="Ketogenic">Keto</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Tiempo en Cocina: <span id="timeValue" style="color: var(--primary);">30 min</span></label>
+                        <input type="range" id="timeSlider" min="15" max="90" step="5" value="30">
+                    </div>
+
+                    <div class="input-group">
+                        <label>Tareas del día (1 por línea)</label>
+                        <textarea id="tasksInput" class="form-control" rows="4" placeholder="- Estudiar API .NET&#10;- Reunión Proyecto"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-dark" style="width: 100%;">✨ Sincronizar D'IA</button>
+                </form>
+            </div>
+
+            <div class="card" style="min-height: 400px;">
+                
+                <div id="stateEmpty" class="state-container">
+                    <i class="ph ph-leaf"></i>
+                    <p>Configura tus parámetros a la izquierda para generar tu plan.</p>
+                </div>
+
+                <div id="stateLoading" class="state-container hidden">
+                    <i class="ph ph-spinner-gap" style="animation: spin 1s linear infinite;"></i>
+                    <p>Consultando espere un momento...</p>
+                </div>
+
+                <div id="stateResult" class="hidden">
+                    <div class="result-content">
+                        <strong>🥑 Sugerencia de Comida:</strong> <br>
+                        <span id="recipeResult" style="color: var(--primary); font-weight: 500;"></span>
+                    </div>
+                    
+                    <h4 style="margin-bottom: 1rem;">🧠 Plan Maestro de Trabajo</h4>
+                    <div id="aiResult" class="ai-text"></div>
+
+                    <div style="margin-top: 2rem; max-width: 300px; margin-left: auto; margin-right: auto;">
+                        <canvas id="timeChart"></canvas>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+    </div>
+
+    <style>@keyframes spin { 100% { transform: rotate(360deg); } }</style>
+    <script src="script.js"></script>
+</body>
+</html>
