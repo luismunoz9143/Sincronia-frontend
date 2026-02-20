@@ -78,3 +78,9 @@ Gestor de Estados Globales: Implementación de herramientas como Redux o Context
 Testing E2E: Incorporación de pruebas de extremo a extremo (End-to-End) utilizando herramientas como Cypress o Playwright.
 
 Progressive Web App (PWA): Configuración de Service Workers y un manifest.json para permitir la instalación de la aplicación y la navegación offline parcial.
+
+## Autores 
+* Steven Maldonado
+* Maria Perez
+* Luis Muñoz
+  * `Desarrollo Full-Stack y Prompt Engineering - Proyecto Final.`
